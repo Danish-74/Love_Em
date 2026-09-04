@@ -1,1 +1,897 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Моя любимая Бубу ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: linear-gradient(135deg, #fff0f5, #ffe4ec, #fff8f5);
+    color: #4a2430;
+    overflow-x: hidden;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -40px;
+    font-size: 22px;
+    animation: floatUp 9s linear infinite;
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main container */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-box {
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(12px);
+    border-radius: 40px;
+    padding: 60px 30px;
+    box-shadow: 0 20px 60px rgba(180,70,100,0.18);
+    border: 1px solid rgba(255,255,255,0.9);
+    width: 100%;
+}
+
+.flowers {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(42px, 9vw, 78px);
+    color: #c73768;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 22px;
+    color: #87505f;
+    line-height: 1.6;
+}
+
+.scroll-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    border-radius: 35px;
+    background: #c73768;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(199,55,104,0.25);
+}
+
+.scroll-button:hover {
+    transform: scale(1.06);
+    background: #a92351;
+}
+
+/* Sections */
+section {
+    margin: 80px 0;
+}
+
+.card {
+    background: rgba(255,255,255,0.87);
+    border-radius: 35px;
+    padding: 42px 30px;
+    box-shadow: 0 15px 50px rgba(180,70,100,0.13);
+}
+
+.section-title {
+    text-align: center;
+    color: #c73768;
+    font-size: 40px;
+    margin-bottom: 32px;
+}
+
+.message {
+    font-size: 19px;
+    line-height: 1.85;
+}
+
+.message p {
+    margin-bottom: 22px;
+}
+
+.wishes {
+    margin: 30px 0;
+    padding: 28px;
+    background: #fff2f6;
+    border-radius: 25px;
+}
+
+.wishes p {
+    margin: 12px 0;
+}
+
+.center-love {
+    text-align: center;
+    font-size: 30px;
+    color: #c73768;
+    margin: 25px 0;
+}
+
+/* Favorite things */
+.favorites-intro {
+    text-align: center;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #714653;
+    margin-bottom: 35px;
+}
+
+.favorites {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.favorite-card {
+    background: linear-gradient(145deg, #fff, #fff1f5);
+    border-radius: 28px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(150,50,80,0.12);
+    transition: 0.35s;
+}
+
+.favorite-card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.favorite-icon {
+    font-size: 75px;
+    margin-bottom: 15px;
+}
+
+.favorite-card h3 {
+    color: #c73768;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.favorite-card p {
+    color: #714653;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Memories */
+.memories-intro {
+    text-align: center;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #714653;
+    margin-bottom: 35px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.photo-card {
+    background: white;
+    padding: 10px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(150,50,80,0.15);
+    transition: 0.4s;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: 0 18px 45px rgba(150,50,80,0.25);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+}
+
+.caption {
+    text-align: center;
+    padding: 15px 7px 10px;
+    color: #9a4862;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* Future memories */
+.future {
+    text-align: center;
+    padding: 45px 25px;
+    background: linear-gradient(135deg, #fff, #ffe8ef);
+    border-radius: 35px;
+}
+
+.future h2 {
+    color: #c73768;
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.future p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #714653;
+}
+
+/* Final love */
+.love-box {
+    text-align: center;
+    padding: 55px 25px;
+    background: linear-gradient(135deg, #fff, #ffe6ee);
+    border-radius: 40px;
+    box-shadow: 0 20px 55px rgba(180,70,100,0.16);
+}
+
+.love-box h2 {
+    font-size: 45px;
+    color: #c73768;
+    margin-bottom: 25px;
+}
+
+.love-text {
+    font-size: 21px;
+    line-height: 1.8;
+}
+
+.big-love {
+    font-size: 65px;
+    margin: 30px 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 10px 60px;
+    color: #925469;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+
+    .container {
+        padding: 12px;
+    }
+
+    .hero-box {
+        padding: 45px 20px;
+    }
+
+    .card {
+        padding: 30px 18px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .message {
+        font-size: 17px;
+    }
+
+    .favorites,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card img {
+        height: 390px;
+    }
+
+    .love-box h2 {
+        font-size: 35px;
+    }
+
+    .love-text {
+        font-size: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating decorations -->
+<div class="heart" style="left:5%; animation-delay:0s;">❤️</div>
+<div class="heart" style="left:15%; animation-delay:2s;">💕</div>
+<div class="heart" style="left:28%; animation-delay:4s;">🌸</div>
+<div class="heart" style="left:42%; animation-delay:1s;">❤️</div>
+<div class="heart" style="left:57%; animation-delay:5s;">🌹</div>
+<div class="heart" style="left:72%; animation-delay:3s;">💕</div>
+<div class="heart" style="left:88%; animation-delay:6s;">❤️</div>
+
+
+<div class="container">
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-box">
+
+        <div class="flowers">
+            🌹🌷💐🌷🌹
+        </div>
+
+        <h1>
+            С Днём Рождения,<br>
+            моя Бубу! ❤️
+        </h1>
+
+        <div class="subtitle">
+            Для самой прекрасной девушки<br>
+            в моей жизни 🥹❤️
+        </div>
+
+        <div style="font-size:40px; margin-top:20px;">
+            🎂❤️🌸
+        </div>
+
+        <a href="#message" class="scroll-button">
+            Открой моё сердце ❤️
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BIRTHDAY MESSAGE ================= -->
+
+<section id="message">
+
+<div class="card">
+
+<h2 class="section-title">
+    Моя любимая Бубу ❤️
+</h2>
+
+<div class="message">
+
+<p>
+Сегодня особенный день, потому что именно в этот день
+родилась самая прекрасная девушка в моей жизни. 🌸
+</p>
+
+<p>
+Ты заслуживаешь
+<strong>
+самой большой любви, самого настоящего счастья
+и всего самого прекрасного в этом мире.
+</strong> ❤️
+</p>
+
+<p>
+Спасибо тебе за то, что ты появилась в моей жизни.
+Спасибо за каждый момент, каждую улыбку, каждое объятие,
+каждое доброе слово и за всё счастье, которое ты мне подарила.
+</p>
+
+<p>
+<strong>
+Спасибо тебе просто за то, что ты есть. ❤️
+</strong>
+</p>
+
+<p>
+С того момента, как ты вошла в мою жизнь,
+всё стало другим. Ты сделала мои дни ярче,
+моё сердце счастливее, а мою жизнь намного красивее.
+</p>
+
+<p>
+Я очень ценю тебя и каждый момент,
+который мы проводим вместе. ❤️
+</p>
+
+<div class="wishes">
+
+<p>💕 Желаю тебе крепкого здоровья.</p>
+
+<p>🌸 Желаю огромного счастья каждый день.</p>
+
+<p>✨ Желаю исполнения всех твоих мечт.</p>
+
+<p>🌹 Желаю, чтобы рядом всегда были люди,
+которые любят и ценят тебя.</p>
+
+<p>💰 Желаю успеха, достатка и красивого будущего.</p>
+
+<p>🎓 Желаю успехов во всех твоих делах и начинаниях.</p>
+
+<p>🌈 Желаю никогда не терять свою прекрасную улыбку.</p>
+
+<p>❤️ Желаю всегда чувствовать себя любимой.</p>
+
+<p>🥰 Желаю много путешествий, приключений
+и незабываемых моментов.</p>
+
+<p>🍦 И чтобы у тебя всегда было твоё любимое мороженое! 😭❤️</p>
+
+</div>
+
+<p>
+А больше всего я желаю тебе просто быть счастливой.
+Потому что твоя улыбка — одно из самых красивых вещей
+в моей жизни. ❤️
+</p>
+
+<div class="center-love">
+<strong>Я люблю тебя. ❤️</strong>
+</div>
+
+<p>
+Я хочу быть рядом с тобой не только сегодня,
+не только завтра, а каждый день.
+</p>
+
+<p>
+Я хочу вместе с тобой создавать воспоминания,
+путешествовать, смеяться, мечтать, проходить через
+трудности и наслаждаться самыми счастливыми моментами жизни.
+</p>
+
+<p>
+И однажды я хочу посмотреть на тебя и сказать:
+</p>
+
+<p style="text-align:center; font-size:22px;">
+<strong>
+«Мы сделали это. Мы вместе.
+И мы прошли весь этот путь рядом». ❤️
+</strong>
+</p>
+
+<p>
+Ты очень особенная для меня, Бубу. 🥹❤️
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= BUBU'S FAVORITES ================= -->
+
+<section>
+
+<div class="card">
+
+<h2 class="section-title">
+    То, что любит моя Бубу ❤️
+</h2>
+
+<div class="favorites-intro">
+
+Я запоминаю даже маленькие вещи,
+которые заставляют тебя улыбаться. 🥹❤️
+
+<br>
+
+Потому что всё, что любишь ты,
+становится важным и для меня.
+
+</div>
+
+
+<div class="favorites">
+
+<!-- Teddy -->
+<div class="favorite-card">
+
+<div class="favorite-icon">
+    🧸
+</div>
+
+<h3>
+Твой мишка 🧸❤️
+</h3>
+
+<p>
+Маленький мишка для моей маленькой Бубу.
+Чтобы всегда напоминал тебе обо мне. 🥹
+</p>
+
+</div>
+
+
+<!-- Cookies -->
+<div class="favorite-card">
+
+<div class="favorite-icon">
+    🍪
+</div>
+
+<h3>
+Твои любимые печеньки 🍪❤️
+</h3>
+
+<p>
+Конечно же, я не мог забыть про твои любимые печеньки. 😂
+Маленькая сладость для моей сладкой девочки.
+</p>
+
+</div>
+
+
+<!-- Chicken soup -->
+<div class="favorite-card">
+
+<div class="favorite-icon">
+    🍲
+</div>
+
+<h3>
+Куриный суп 🍲😂❤️
+</h3>
+
+<p>
+Xaxa 😂 Я ОБЯЗАТЕЛЬНО должен был добавить это сюда.
+Потому что я знаю, как сильно ты любишь куриный суп. ❤️
+</p>
+
+</div>
+
+
+<!-- Ice cream -->
+<div class="favorite-card">
+
+<div class="favorite-icon">
+    🍦
+</div>
+
+<h3>
+Любимое мороженое 🍦❤️
+</h3>
+
+<p>
+Потому что у моей Бубу всегда должно быть
+что-нибудь вкусненькое. 🥰
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MEMORIES ================= -->
+
+<section id="memories">
+
+<div class="card">
+
+<h2 class="section-title">
+    Наши воспоминания ❤️
+</h2>
+
+<div class="memories-intro">
+
+Каждая фотография здесь — это маленькая часть
+нашей истории. ❤️
+
+<br>
+
+Я хочу сохранить эти моменты навсегда. 🥹
+
+<br><br>
+
+И я надеюсь, что однажды здесь будет
+не 5 фотографий, а сотни наших воспоминаний. ❤️
+
+</div>
+
+
+<div class="gallery">
+
+
+<!-- Photo 1 -->
+<div class="photo-card">
+
+<img src="photo1.jpg" alt="Наше воспоминание">
+
+<div class="caption">
+    Наша история ❤️
+    <br>
+    Один из моментов, которые я хочу помнить всегда.
+</div>
+
+</div>
+
+
+<!-- Photo 2 -->
+<div class="photo-card">
+
+<img src="photo1.jpg.jpeg" alt="Наше воспоминание">
+
+<div class="caption">
+    Ещё один прекрасный момент 🥹❤️
+    <br>
+    Ты делаешь этот момент особенным.
+</div>
+
+</div>
+
+
+<!-- Photo 3 -->
+<div class="photo-card">
+
+<img src="photo2.jpg.jpeg" alt="Наше воспоминание">
+
+<div class="caption">
+    Ты и твоя прекрасная улыбка 🌸
+    <br>
+    Один из моих любимых видов.
+</div>
+
+</div>
+
+
+<!-- Photo 4 -->
+<div class="photo-card">
+
+<img src="photo3.jpg.jpeg" alt="Наше воспоминание">
+
+<div class="caption">
+    Ещё одна страница нашей истории ❤️
+    <br>
+    И я хочу писать эту историю вместе с тобой.
+</div>
+
+</div>
+
+
+<!-- Photo 5 -->
+<div class="photo-card">
+
+<img src="photo4.jpg.jpeg" alt="Наше воспоминание">
+
+<div class="caption">
+    Вместе — всегда лучше 🥰
+    <br>
+    Пусть таких моментов будет ещё тысячи.
+</div>
+
+</div>
+
+
+<!-- Photo 6 -->
+<div class="photo-card">
+
+<img src="photo5.jpg.jpeg" alt="Наше воспоминание">
+
+<div class="caption">
+    И ещё одно воспоминание ❤️
+    <br>
+    Которое я хочу сохранить навсегда.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FUTURE ================= -->
+
+<section>
+
+<div class="future">
+
+<div style="font-size:50px;">
+    ✈️🌍❤️🥹🌹
+</div>
+
+<h2>
+    Наше будущее ❤️
+</h2>
+
+<p>
+Это только начало нашей истории.
+</p>
+
+<br>
+
+<p>
+Впереди ещё столько всего:
+путешествия, приключения, смешные моменты,
+новые фотографии, новые мечты и новые воспоминания.
+</p>
+
+<br>
+
+<p>
+Я хочу смеяться с тобой,
+путешествовать с тобой,
+мечтать с тобой
+и просто просыпаться рядом с тобой.
+</p>
+
+<br>
+
+<p>
+<strong>
+И самое главное — я хочу пройти этот путь вместе с тобой. ❤️
+</strong>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= FINAL LOVE ================= -->
+
+<section>
+
+<div class="love-box">
+
+<div class="flowers">
+    💐🌹🌷❤️🌷🌹💐
+</div>
+
+<h2>
+    Бубу, я люблю тебя ❤️
+</h2>
+
+<div class="love-text">
+
+<p>
+Спасибо за то, что ты есть в моей жизни.
+</p>
+
+<p>
+Спасибо за твою улыбку,
+твою доброту, твоё тепло
+и за каждый момент рядом с тобой.
+</p>
+
+<div class="big-love">
+    ❤️🥹❤️
+</div>
+
+<p>
+Я хочу, чтобы впереди у нас было ещё
+огромное количество счастливых воспоминаний.
+</p>
+
+<p>
+Новые путешествия.
+<br>
+Новые приключения.
+<br>
+Новые фотографии.
+<br>
+Новые мечты.
+</p>
+
+<br>
+
+<p>
+<strong>
+И самое главное — вместе. ❤️
+</strong>
+</p>
+
+<br>
+
+<p style="font-size:29px;">
+<strong>
+С Днём Рождения, моя Бубу! ❤️
+</strong>
+</p>
+
+<p style="margin-top:15px;">
+Я люблю тебя бесконечно. 🥹❤️
+</p>
+
+<div class="flowers" style="margin-top:30px;">
+    💐🌹🌷❤️🌷🌹💐
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+Сделано с любовью специально для моей Бубу ❤️
+
+<br>
+
+05.09.2026 🌸
+
+<br><br>
+
+🧸 🍪 🍲 🍦 🌹 ❤️
+
+</footer>
+
+</div>
+
+
+<!-- Floating heart animation -->
+<script>
+
+const hearts = document.querySelectorAll('.heart');
+
+hearts.forEach((heart) => {
+
+    heart.style.animationDuration =
+        (7 + Math.random() * 5) + 's';
+
+});
+
+</script>
+
+</body>
+</html>
+```
